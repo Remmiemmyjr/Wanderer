@@ -5,12 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float moveSpeed = 4;
-    Vector3 velocity = new Vector3(0.0f, 0.0f, 0.0f);
+    Vector3 toPlayer = new Vector3(0.0f, 0.0f, 0.0f);
     Transform Player; 
     int maxDistance = 15;
     
-
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +20,18 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Follow();
+        if (Vector3.Distance(transform.position, Player.position) <= maxDistance)
+        {
+            Follow();
+        }
     }
 
     private void Follow()
     {
-        if (Vector3.Distance(transform.position, Player.position) <= maxDistance)
-        {
-            transform.position += velocity * moveSpeed;
-        }
-        transform.position += velocity;
+
+        toPlayer = Player.position - transform.position;
+        
+
+        //transform.position += velocity * moveSpeed;
     }
 }
