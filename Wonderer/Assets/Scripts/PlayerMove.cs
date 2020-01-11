@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
+    public float moveSpeedDamp = 0.5f; 
     Vector3 velocity = new Vector3(0.0f, 0.0f, 0.0f);
    
 
@@ -28,21 +29,19 @@ public class PlayerMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            velocity.y = moveSpeed;
-            print("Moving");
+            velocity.y = moveSpeed * moveSpeedDamp;  
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            velocity.y = -moveSpeed;
-            print("Moving");
+            velocity.y = moveSpeedDamp * -moveSpeed;
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            velocity.x = -moveSpeed;
+            velocity.x = moveSpeedDamp * -moveSpeed; 
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            velocity.x = moveSpeed;
+            velocity.x = moveSpeed * moveSpeedDamp;
         }
         else
         {
@@ -51,7 +50,6 @@ public class PlayerMove : MonoBehaviour
         }
 
         transform.position += velocity;
-        
     }
  
 }
