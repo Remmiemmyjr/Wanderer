@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float moveSpeed = 4;
+    public float moveSpeed = 3f;
     Vector3 toPlayer = new Vector3(0.0f, 0.0f, 0.0f);
     Transform Player; 
     int maxDistance = 15;
@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
     {
 
         toPlayer = Player.position - transform.position;
+        toPlayer = toPlayer.normalized * moveSpeed;
+        transform.position = toPlayer;
         
 
         //transform.position += velocity * moveSpeed;
