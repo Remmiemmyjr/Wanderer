@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float moveSpeed = 3f;
+    private float moveSpeed;
     Vector3 toPlayer = new Vector3(0.0f, 0.0f, 0.0f);
     Transform Player; 
     int maxDistance = 15;
+    bool following = false;
     
     
 
@@ -15,12 +16,17 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
+        moveSpeed = Random.Range(0.01f, 0.06f);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Vector3.Distance(transform.position, Player.position) <= maxDistance)
+        {
+            following = true;
+        }
+        if(following)
         {
             Follow();
         }
@@ -30,8 +36,17 @@ public class Enemy : MonoBehaviour
     {
 
         toPlayer = Player.position - transform.position;
+        if(System.Math.Abs(toPlayer.x) > System.Math.Abs(toPlayer.y))
+        {
+            toPlayer.y = Random.Range(-1, 1);
+        }
+        else
+        {
+            toPlayer.x = Random.Range(-1, 1);
+        }
+
         toPlayer = toPlayer.normalized * moveSpeed;
-        transform.position = toPlayer;
+        transform.position += toPlayer;
         
 
         //transform.position += velocity * moveSpeed;
