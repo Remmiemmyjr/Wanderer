@@ -29,6 +29,8 @@ public class PlayerMove : MonoBehaviour
 
     void Move()
     {
+        velocity.y = 0;
+        velocity.x = 0;
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             velocity.y = moveSpeed * moveSpeedDamp;
@@ -43,17 +45,10 @@ public class PlayerMove : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            velocity.x = moveSpeed * moveSpeedDamp;
+            velocity.x = moveSpeed * moveSpeedDamp; 
         }
-
-        else
-        {
-            velocity.y = 0;
-            velocity.x = 0;
-
-        }
-
         transform.position += velocity;
+        velocity = velocity.normalized * moveSpeed;
     }
     /* bool ValidDir(Vector2 direction)
      {
