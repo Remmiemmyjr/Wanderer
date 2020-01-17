@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     int minEnemies = 2;
-    int maxEnemies = 4;
-    Rect SpawnArea = new Rect(-30f, -23f, 34f, 45f);
+    int maxEnemies = 3;
+    Rect SpawnArea = new Rect(-30f, -23f, 45f, 45f);
     public GameObject EnemyTemplate;
 
     // Start is called before the first frame update

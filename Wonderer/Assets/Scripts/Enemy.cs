@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     private float moveSpeed;
     Vector3 toPlayer = new Vector3(0.0f, 0.0f, 0.0f);
     Transform Player; 
-    int maxDistance = 15;
+    int maxDistance = 25;
     bool following = false;
     
     
@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-        moveSpeed = Random.Range(0.01f, 0.06f);
+        moveSpeed = Random.Range(0.008f, 0.035f);
     }
 
     // Update is called once per frame
