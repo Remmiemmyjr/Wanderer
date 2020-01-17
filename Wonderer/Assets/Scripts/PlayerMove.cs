@@ -8,7 +8,8 @@ public class PlayerMove : MonoBehaviour
     public float moveSpeed = 5.0f;
     public float moveSpeedDamp = 0.5f; 
     Vector3 velocity = new Vector3(0.0f, 0.0f, 0.0f);
-   
+    Vector3 Destination = Vector3.zero;
+
 
 
 
@@ -27,19 +28,19 @@ public class PlayerMove : MonoBehaviour
 
     void Move()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             velocity.y = moveSpeed * moveSpeedDamp;  
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             velocity.y = moveSpeedDamp * -moveSpeed;
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             velocity.x = moveSpeedDamp * -moveSpeed; 
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             velocity.x = moveSpeed * moveSpeedDamp;
         }
@@ -51,5 +52,16 @@ public class PlayerMove : MonoBehaviour
 
         transform.position += velocity;
     }
- 
+    bool ValidDir(Vector2 direction)
+    {
+        //draw a line from the next tile over + a little and check if the maze is in the way
+        Vector2 pos = transform.position;
+        direction += direction * 0.55f;
+        //bit shift the index of the layermask to only check layer 8
+        //which should be the maze
+        int layerMask = 1 << 8;
+        RaycastHit2D hit = Physics2D.Linecast(pos + direction, pos, layerMask);
+        return hit.collider == null;
+    }
+
 }
