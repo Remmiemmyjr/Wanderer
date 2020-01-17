@@ -5,9 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private float moveSpeed;
-    Vector3 toPlayer = new Vector3(0.0f, 0.0f, 0.0f);
+    Vector3 toPlayer = new Vector3(0.0f, 0.0f, 0.0f); 
     Transform Player; 
-    int maxDistance = 25;
+    int maxDistance = 20;
     bool following = false;
     
     
