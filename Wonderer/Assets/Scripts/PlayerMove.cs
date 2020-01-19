@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float moveSpeed = 5.0f;
-    public float moveSpeedDamp = 0.5f;
+    public float moveSpeed = 9.5f;
+    public float moveSpeedDamp = 1f;
     Vector3 velocity = new Vector3(0.0f, 0.0f, 0.0f);
 
     Vector3 Destination = Vector3.zero;
@@ -47,7 +47,7 @@ public class PlayerMove : MonoBehaviour
         {
             velocity.x = moveSpeed * moveSpeedDamp; 
         }
-        transform.position += velocity;
+        transform.position += velocity * Time.deltaTime;
         velocity = velocity.normalized * moveSpeed;
     }
     /* bool ValidDir(Vector2 direction)

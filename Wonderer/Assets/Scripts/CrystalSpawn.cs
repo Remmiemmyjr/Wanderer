@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CrystalSpawn : MonoBehaviour
 {
-    int numOfCrystals = 6;
+    public static int numOfCrystals = 6;
     Rect SpawnArea = new Rect(-30f, -23f, 50f, 45f);
     public GameObject CrystalTemplate;
 

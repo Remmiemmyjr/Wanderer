@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2322552660050079696}
   - component: {fileID: 2322552660050079697}
-  - component: {fileID: 2322552660050079699}
-  - component: {fileID: 4843773847693715881}
+  - component: {fileID: 9055306944635191065}
   - component: {fileID: -6271942384757617944}
   m_Layer: 0
   m_Name: crystal
@@ -84,23 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &2322552660050079699
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2322552660050079702}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.013632774, y: 0.0000009536743}
-  m_Size: {x: 0.9639435, y: 1.7273521}
-  m_Direction: 0
---- !u!58 &4843773847693715881
+--- !u!58 &9055306944635191065
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +94,7 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2

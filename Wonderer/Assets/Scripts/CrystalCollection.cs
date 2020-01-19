@@ -10,12 +10,18 @@ public class CrystalCollection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Health.UpdateCounter(Crystals);
-        if (DestroyOnCollide)
+        if(other.gameObject.tag.Equals("Player"))
         {
-            Destroy(gameObject);
+            Health.UpdateCounter(Crystals);
+            Destroy(this.gameObject);
+            
+            if(Health.crystalCounter == CrystalSpawn.numOfCrystals)
+            {
+                var gate = GameObject.Find("Gate");
+                Destroy(gate);
+            }
+            
         }
-
     }
     // Start is called before the first frame update
     void Start()

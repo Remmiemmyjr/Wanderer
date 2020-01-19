@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-        moveSpeed = Random.Range(0.01f, 0.05f);
+        moveSpeed = Random.Range(3.7f, 5.5f);
     }
 
     // Update is called once per frame
@@ -46,9 +46,15 @@ public class Enemy : MonoBehaviour
         }
 
         toPlayer = toPlayer.normalized * moveSpeed;
-        transform.position += toPlayer;
-        
+        transform.position += toPlayer * Time.deltaTime;
 
-        //transform.position += velocity * moveSpeed;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag.Equals("Player"))
+        {
+            Health.UpdateHealthCounter(1);
+            Destroy(this.gameObject);
+        }
     }
 }
