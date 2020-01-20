@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
+    public string LevelName; 
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class PlayButton : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(LevelName);
     }
 }
 

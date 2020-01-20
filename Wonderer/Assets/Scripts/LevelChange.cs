@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
 {
+    public string LevelName;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +22,9 @@ public class LevelChange : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Player"))
         {
-            SceneManager.LoadScene("Level2");
+            SceneManager.LoadScene(LevelName);
         }
+        
     }
 
 }
