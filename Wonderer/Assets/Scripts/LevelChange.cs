@@ -30,6 +30,10 @@ public class LevelChange : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Player"))
         {
+            if(Health.healthCounter < 3)
+            {
+                Health.healthCounter++;
+            }
             SceneManager.LoadScene(LevelName);
         }
         

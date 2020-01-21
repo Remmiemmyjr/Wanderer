@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     {
         crystalCount = GameObject.Find("crystalCount").GetComponent<TextMesh>();
         HealthBar = GameObject.Find("healthCounter").GetComponent<TextMesh>();
+        HealthBar.text = healthCounter.ToString();
     }
 
     // Update is called once per frame
