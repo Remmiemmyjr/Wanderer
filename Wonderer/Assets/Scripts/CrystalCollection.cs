@@ -19,6 +19,7 @@ public class CrystalCollection : MonoBehaviour
             {
                 var gate = GameObject.Find("Gate");
                 Destroy(gate);
+                Health.crystalCounter = 0;
             }
             
         }

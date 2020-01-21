@@ -15,7 +15,15 @@ public class LevelChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        LevelChanger();
+    }
 
+    private void LevelChanger()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(LevelName);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
